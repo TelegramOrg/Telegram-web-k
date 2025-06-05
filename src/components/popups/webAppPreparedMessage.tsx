@@ -62,12 +62,13 @@ export default class PopupWebAppPreparedMessage extends PopupElement<{
 
                 return false
               },
-              chatRightsActions: ['send_inline']
-            }).catch(() => null);
+chatRightsActions: ['send_inline']
+}).catch(() => null);
 
-            if(!chosenPeerId) {
-              return false;
-            }
+if(!chosenPeerId) {
+  return false as boolean;
+}
+return true;
 
             await appImManager.setInnerPeer({peerId: chosenPeerId});
             const queryAndResultIds = generateQId(this.message.query_id, this.message.result.id);
